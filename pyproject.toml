@@ -1,0 +1,77 @@
+[build-system]
+requires = ["hatchling>=1.26"]
+build-backend = "hatchling.build"
+
+[project]
+name = "mr-checker"
+version = "0.1.0"
+description = "A modern, open-source secret scanner for developers."
+readme = "README.md"
+requires-python = ">=3.13"
+license = { text = "AGPL-3.0-only" }
+
+authors = [
+    { name = "Yash Mhamunkar" }
+]
+
+keywords = [
+    "security",
+    "cybersecurity",
+    "secret-scanner",
+    "devsecops",
+    "cli",
+    "git",
+    "scanner"
+]
+
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: GNU Affero General Public License v3",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Security",
+]
+
+dependencies = [
+    "typer>=0.16.0",
+    "rich>=14.0.0",
+    "pydantic>=2.11.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.4",
+    "ruff>=0.12",
+    "mypy>=1.17",
+    "pre-commit>=4.2",
+]
+
+[project.urls]
+Homepage = "https://github.com/recon-0xyash/mr-checker"
+Repository = "https://github.com/recon-0xyash/mr-checker"
+Issues = "https://github.com/recon-0xyash/mr-checker/issues"
+
+[project.scripts]
+mrchecker = "mrchecker.cli:app"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/mrchecker"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py313"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+ignore = ["B008"]
+
+[tool.mypy]
+python_version = "3.13"
+strict = true
+ignore_missing_imports = true

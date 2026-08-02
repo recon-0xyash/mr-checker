@@ -78,6 +78,10 @@ def scan(
 
     console.print()
 
+    if not files:
+        console.print("[yellow]No files found to scan.[/yellow]")
+        console.print()
+
     for index, file in enumerate(files, start=1):
         lines = read_file(file)
         total_lines += len(lines)

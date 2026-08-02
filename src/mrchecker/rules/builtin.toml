@@ -26,3 +26,17 @@ severity = "high"
 recommendation = "Revoke and regenerate the GitHub Personal Access Token."
 
 pattern = "ghp_[A-Za-z0-9]{36}"
+
+[[rules]]
+id = "slack-bot-token"
+name = "Slack Bot Token"
+
+description = "Detects Slack Bot Tokens."
+
+category = "Messaging"
+
+severity = "high"
+
+recommendation = "Rotate the exposed Slack Bot Token immediately."
+
+pattern = "xoxb-[0-9A-Za-z-]{20,}"

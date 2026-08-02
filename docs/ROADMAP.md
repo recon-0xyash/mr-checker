@@ -29,3 +29,12 @@
 ## Phase 6
 
 - Plugin support
+
+
+## Technical Debt
+
+- [ ] Replace TOML parser tracebacks with user-friendly error messages.
+- [ ] Detect duplicate rule IDs during rule loading.
+- [ ] Add progress bar for large directory scans.
+- [ ] Export findings to JSON.
+- [ ] Export findings to SARIF.

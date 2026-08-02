@@ -116,6 +116,32 @@ All tests successfully pass.
 
 ---
 
+## Validation Results
+
+Beyond unit tests, the architecture was validated using practical scenarios:
+
+### Rule Engine Extensibility
+
+A new Slack Bot Token detection rule was added by modifying only `builtin.toml`. No Python source files were changed, confirming that the detection engine is fully data-driven.
+
+### Invalid Rule Configuration
+
+The `pattern` field was intentionally removed from a rule definition. The scanner failed immediately during rule loading with a TOML parsing error, confirming that invalid rule configurations are detected before any scanning begins.
+
+### Directory Exclusion
+
+The `--exclude` option was verified by placing secrets inside an excluded directory. Findings were skipped when the directory was excluded and detected when scanned normally.
+
+### Finding Accuracy
+
+Multiple identical secrets across different files and line numbers were correctly reported with distinct file paths and line numbers.
+
+### Empty Directory Handling
+
+Scanning an empty directory completed successfully without errors. The scanner reported zero files, zero findings, and returned a successful status.
+
+---
+
 ### Code Quality
 
 Integrated automated development tooling:

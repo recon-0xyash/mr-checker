@@ -1,0 +1,28 @@
+[[rules]]
+id = "aws-access-key"
+name = "AWS Access Key"
+
+description = "Detects AWS IAM Access Key IDs."
+
+category = "Cloud"
+
+severity = "high"
+
+recommendation = "Rotate the exposed AWS Access Key immediately."
+
+pattern = "AKIA[0-9A-Z]{16}"
+
+
+[[rules]]
+id = "github-pat"
+name = "GitHub Personal Access Token"
+
+description = "Detects GitHub Personal Access Tokens."
+
+category = "Source Control"
+
+severity = "high"
+
+recommendation = "Revoke and regenerate the GitHub Personal Access Token."
+
+pattern = "ghp_[A-Za-z0-9]{36}"
